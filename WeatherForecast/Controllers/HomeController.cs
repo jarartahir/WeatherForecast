@@ -16,7 +16,6 @@ namespace WeatherForecast.Controllers
         public async Task<IActionResult> Index()
         {
            var data =  await CurrentWeather("erfurt", "json");
-            var test = data.GetValue("name").ToString();
             return View();
         }
 
@@ -35,13 +34,6 @@ namespace WeatherForecast.Controllers
             return jsonObject;
 
 
-        }
-
-
-        [HttpGet]
-        public void test()
-        {
-            
         }
     }
 }
