@@ -1,4 +1,4 @@
-﻿// Step 1: Get user coordinates
+﻿// Get user coordinates
 function getCoordintes() {
     var options = {
         enableHighAccuracy: true,
@@ -30,7 +30,7 @@ function getCoordintes() {
     navigator.geolocation.getCurrentPosition(success, error, options);
 }
 
-// Step 2: Get city name
+// Get city name
 async function getLocation(coordinates) {
     var lat = coordinates[0];
     var lng = coordinates[1];
