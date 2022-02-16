@@ -35,6 +35,14 @@ function getCityName() {
 //this function will call the api function and get the data and set the data content into HTML tags
 function updateWeather(cityName) {
     getWeather(cityName).then(data => {
+        //If user put invalid city name it will throw an alert
+        if (data.cod == "404") {
+            alert(data.message);
+            setTimeout(() => document.getElementById("cityNameInput").focus(), 0)
+            getCoordintes(); //If city not found then this function call will return the data of the user current location
+
+        }
+
         document.getElementById("cityDescription").innerHTML = `Aktuelle Wetterlage in ${data.name}, ${data.sys.country}`;
         var tBodyRef = document.getElementById("weatherUpdates");
         deleteRows(tBodyRef);
